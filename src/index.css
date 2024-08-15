@@ -1,13 +1,319 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Space Mono", monospace;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --Strong-cyan: hsl(172, 67%, 45%);
+
+
+--Very-dark-cyan: hsl(183, 100%, 15%);
+--Dark-grayish-cyan: hsl(186, 14%, 43%);
+--Grayish-cyan: hsl(184, 14%, 56%);
+--Light-grayish-cyan: hsl(185, 41%, 84%);
+--Very-light-grayish-cyan: hsl(189, 41%, 97%);
+--White: hsl(0, 0%, 100%);
+}
+
+.container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: var(--Light-grayish-cyan);
+}
+
+h1 {
+  text-transform: uppercase;
+  color: var(--Dark-grayish-cyan);
+  letter-spacing: 5px;
+  font-size: 24px;
+  margin-block: 15px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.card {
+  background-color: var(--White);
+  padding: 25px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+}
+
+
+
+.input {
+  outline: none;
+  background-color: var(--Very-light-grayish-cyan);
+  width: 100%;
+  padding: 8px;
+  text-align: right;
+  color: var(--Very-dark-cyan);
+  font-weight: 700;
+  font-size: 18px;
+  border: 0;
+  border-radius: 5px;
+  padding-inline: 15px;
+
+}
+
+.input--red {
+  border: 1px solid red;
+}
+
+.input--content {
+  display: flex;
+  width: 100%;
+  /* background-color: var(--Very-light-grayish-cyan); */
+  position: relative;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: var(--Dark-grayish-cyan);
+  font-weight: 700;
+}
+
+.people--error {
+  color: red;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.display--block {
+  display: block;
+}
+
+.icon {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ left: 15px;
+}
+
+.bill {
+display: grid;
+margin-bottom: 25px;
+}
+
+.people__count {
+  display: grid;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  position: relative;
+
+}
+
+.tip {
+  --gap: .75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.btn__tip {
+  width: calc(50% - var(--gap));
+  padding-block: 8px;
+  background-color: var(--Very-dark-cyan);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn__tip--active {
+  background-color: var(--Strong-cyan);
+  color: black;
+}
+
+.custom--input {
+  width: calc(50% - var(--gap));
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--Very-light-grayish-cyan);
+  border: none;
+  padding-left: 15px;
+  outline: none;
+  border-radius: 5px;
+}
+
+.select__tip--title {
+  margin-bottom: 10px;
+  color: var(--Dark-grayish-cyan);
+  font-weight: 600;
+}
+
+.card__bottom {
+  background-color: var(--Very-dark-cyan);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 15px;
+  display: grid;
+  gap: 1rem;
+}
+
+.total__amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn__reset {
+  color: black;
+  background-color: var(--Strong-cyan);
+  border: none;
+  padding-block: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  outline: none;
+}
+
+h2 {
+  color: var(--Strong-cyan);
+  font-size: 32px;
+}
+
+.person--text {
+  color: var(--Grayish-cyan);
+}
+
+@media(min-width: 600px) {
+  h1 {
+    letter-spacing: 8px;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, .15);
+  }
+
+  .card__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 40px 35px;
+  }
+
+  h2 {
+    color: var(--Strong-cyan);
+    font-size: 48px;
+  }
+
+  .card__top {
+    padding: 35px;
+
+  }
+
+  .tip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .btn__tip {
+    transition: all .3s;
+    padding-block: 8px;
+  }
+
+  .btn__tip, .custom--input {
+    width: 100%;
+    cursor: pointer;
+
+  }
+
+  .custom--input:hover, .custom--input:focus {
+    outline: 2px solid var(--Strong-cyan);
+  }
+
+  .btn__tip:hover, .btn__tip:focus {
+    background-color: var(--Light-grayish-cyan);
+    color: black;
+  }
+
+  .btn__reset {
+    margin-top: auto;
+  }
+
+  .input {
+    font-size: 24px;
+
+  }
+
+  .people__count  {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
+  .bill {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+  .input:hover, .input:focus {
+    outline: 2px solid var(--Strong-cyan);
+    cursor: pointer;
+  }
+  .btn__reset {
+    padding-block: 10px;
+  }
+  .btn__reset:hover, .btn__reset:focus {
+    background-color: hsl(185, 41%, 65%);
+  }
+  .select__tip--title {
+    margin-bottom: 20px;
+  }
 }
